@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'annotate'
 gem 'devise'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
