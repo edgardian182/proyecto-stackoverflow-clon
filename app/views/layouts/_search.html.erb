@@ -2,6 +2,6 @@
 
 <%= form_tag questions_path, method: :get, class:"navbar-form navbar-left" do %>
   <div class="form-group">
-    <%= text_field_tag :question, params[:question], class:"form-control", placeholder:"Buscar pregunta" %>
+    <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Buscar pregunta" %>
   </div>
 <% end %>
