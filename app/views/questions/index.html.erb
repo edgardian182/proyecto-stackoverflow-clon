@@ -13,8 +13,8 @@
           <td>
             <p class="creator">Respuestas</p>
           </td>
-          <td class="title">
-            <%= question.title %> <br>
+          <td>
+            <%= link_to question.title, question, class:"title" %> <br>
             <p class="creator">Preguntó <%= question.user.email %> hace <%= time_ago_in_words(question.created_at) %></p>
           </td>
         </tr>
