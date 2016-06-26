@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root 'questions#index'
   devise_for :users
   resources :questions do
-    resources :comments
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
   resources :answers do
-    resources :comments
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
