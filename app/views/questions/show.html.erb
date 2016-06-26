@@ -6,7 +6,7 @@
   </div>
   <div class="col-sm-11">
     <p><%= markdown(@question.description) %></p>
-    <br>
+    <hr>
     <% @question.comments.each do |comment| %>
       <div class="panel panel-default">
         <header class="panel-heading">
@@ -15,10 +15,17 @@
         <div class="panel-body">
           <%= comment.body %>
         </div>
+        <% if comment.user == current_user %>
+          <div class="panel-footer">
+            <%= link_to "Delete", question_comment_path(@question, comment), method: :delete, class:"btn btn-danger btn-sm" %>
+          </div>
+        <% end %>
       </div>
     <% end %>
 
-    <%= render 'commentF' %>
+    <% if user_signed_in? %>
+      <%= render 'commentF' %>
+    <% end %>
 
   </div>
 </div>

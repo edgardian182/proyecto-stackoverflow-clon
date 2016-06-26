@@ -12,8 +12,8 @@
 
 class Question < ActiveRecord::Base
   belongs_to :user
-  has_many :comments, as: :commentable
-  has_many :answers
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :answers, dependent: :destroy
 
   validates_presence_of :title, :description
 end

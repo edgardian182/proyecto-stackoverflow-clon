@@ -7,6 +7,14 @@ class CommentsController < ApplicationController
     redirect_to commentable_url(find_commentable), notice: "The comment was successfully created"
   end
 
+  def destroy
+    @commentable = find_commentable
+    @comment = @commentable.comments.find(params[:id])
+    @comment.destroy
+
+    redirect_to commentable_url(find_commentable)
+  end
+
 
   private
     def comment_params
@@ -16,11 +24,9 @@ class CommentsController < ApplicationController
     def find_commentable
       # Si en los Params existe un question_id, @commentable será la pregunta con ese ID sino, el @commentable será una Answer
       if params[:question_id]
-        id = params[:question_id]
-        Question.find(id)
+        Question.find(params[:question_id])
       else
-        id = params[:answer_id]
-        Answer.find(id)
+        Answer.find(params[:answer_id])
       end
     end
 
