@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <%= form_for [@question, @question.comments.build] do |f| %>
+    <div class="form-group">
+      <%= f.text_area :body, class:"form-control", placeholder: "Ingresa tu comentario" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Comentar", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

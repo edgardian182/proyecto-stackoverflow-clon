@@ -6,5 +6,19 @@
   </div>
   <div class="col-sm-11">
     <p><%= markdown(@question.description) %></p>
+    <br>
+    <% @question.comments.each do |comment| %>
+      <div class="panel panel-default">
+        <header class="panel-heading">
+          <strong><%= comment.user.email %> commented this <%= time_ago_in_words(comment.created_at) %> ago</strong>
+        </header>
+        <div class="panel-body">
+          <%= comment.body %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= render 'commentF' %>
+
   </div>
 </div>
