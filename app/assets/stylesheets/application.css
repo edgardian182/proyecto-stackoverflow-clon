@@ -17,5 +17,15 @@
 
  p {
   font-size: 16px;
+  width: 100%;
+  /* Si hay palabras largas con esta propiedad la corta y le hace coinsidir con el espacio determiando para ello (width) */
+  overflow-wrap: break-word;
+ }
+
+ p.comment {
+  border-top: 1px solid #C9C9C9;
+  padding-top: 10px;
+  padding-left: 20px;
+  font-size: 14px;
  }
 
