@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'questions#index'
   devise_for :users
   resources :questions do
-    resources :comments, only: [:create, :edit, :update, :destroy]
+    resources :comments, only: [:create, :destroy]
     resources :answers do
-      resources :comments, only: [:create, :edit, :update, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
   end
 

@@ -23,10 +23,10 @@ class CommentsController < ApplicationController
 
     def find_commentable
       # Si en los Params existe un question_id, @commentable será la pregunta con ese ID sino, el @commentable será una Answer
-      if params[:question_id]
-        Question.find(params[:question_id])
-      else
+      if params[:answer_id]
         Answer.find(params[:answer_id])
+      else
+        Question.find(params[:question_id])
       end
     end
 
@@ -35,7 +35,9 @@ class CommentsController < ApplicationController
       if Question === commentable
         question_path(commentable)
       else
-        answer_path(commentable)
+        # Como las respuestas están en la misma ruta del SHOW de la Pregunta, le redireccionamos al mismo lugar que si hubiesemos utilizado el Model Question en este caso
+        question_path(commentable)
+        # answer_path(commentable)
       end
     end
 end
