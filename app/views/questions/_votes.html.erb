@@ -1,0 +1,13 @@
+<!-- Se hace una condición ternaria comparando la clase del LOCALE que se pasa al render, si es tipo ANSWER pasa la ruta a voto de respuesta si no al de pregunta -->
+
+<% if votable.voted_by?(current_user) %>
+  <%= link_to (votable.class == Answer ? answer_vote_path(votable) : question_vote_path(votable)), method: :delete, class: "item-upvote upvote-active" do %>
+    <span class="upvote-arrow"></span>
+    <span class="upvote-count"><%= votable.votes.count %></span>
+  <% end %>
+<% else %>
+  <%= link_to (votable.class == Answer ? answer_vote_path(votable) : question_vote_path(votable)), method: :post, class: "item-upvote" do %>
+    <span class="upvote-arrow"></span>
+    <span class="upvote-count"><%= votable.votes.count %></span>
+  <% end %>
+<% end %>

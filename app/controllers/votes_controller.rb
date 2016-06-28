@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+before_action :authenticate_user!
 
   def create
     @votable = find_votable
