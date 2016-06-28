@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
         question_path(commentable)
       else
         # Como las respuestas están en la misma ruta del SHOW de la Pregunta, le redireccionamos al mismo lugar que si hubiesemos utilizado el Model Question en este caso
-        question_path(commentable)
+        question_path(commentable.question_id)
         # answer_path(commentable)
       end
     end

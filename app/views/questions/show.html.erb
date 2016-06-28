@@ -35,7 +35,7 @@
       <% end %>
     <% end %>
 
-    <%= render 'commentF' %>
+    <%= render 'comments_form', commentable: @question %>
     <!-- ****** COMO TEXTO FIN ****** -->
   </div>
 </div>
@@ -59,15 +59,15 @@
         <p class="comment"><%= comment.body %> — <span class="creator"><%= comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago</span></p>
         <% if comment.user == current_user %>
           <div class="text-right">
-            <%= link_to "Delete", question_answer_comment_path(@question, answer, comment), method: :delete, class:"btn btn-danger btn-sm" %>
+            <%= link_to "Delete", answer_comment_path(answer, comment), method: :delete, class:"btn btn-danger btn-sm" %>
             <br><br>
           </div>
         <% end %>
       <% end %>
 
       <!-- Mostrar formulario para hacer un comentario a respuestas -->
-      <%= render 'commentAnswer' %>
-
+      <%= render 'comments_form', commentable: answer %>
+      <br>
     <% end %>
   </div>
 </div>

@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :questions do
     resources :comments, only: [:create, :destroy]
-    resources :answers do
-      resources :comments, only: [:create, :destroy]
-    end
+    resources :answers
+  end
+  resources :answers do
+    resources :comments, only: [:create, :destroy]
   end
 
 

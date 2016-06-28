@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= form_for [@question, @question.comments.build] do |f| %>
+  <%= form_for [commentable, commentable.comments.new] do |f| %>
     <div class="form-group">
       <%= f.text_area :body, class:"form-control", placeholder: "Ingresa tu comentario" %>
     </div>
