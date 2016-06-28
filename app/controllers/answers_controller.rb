@@ -4,9 +4,13 @@ class AnswersController < ApplicationController
 
   def create
     question = Question.find(params[:question_id])
-    question.answers.create(answer_params)
-
-    redirect_to question
+    @answer = question.answers.new(answer_params)
+    if @answer.save
+      redirect_to question
+    else
+      @errors = @answer.errors
+      render "questions/show/"
+    end
   end
 
   def destroy

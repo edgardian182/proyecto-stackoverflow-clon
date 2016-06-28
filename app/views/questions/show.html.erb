@@ -1,7 +1,9 @@
+<%= render 'layouts/errors', obj: @errors %>
+
 <h2><%= @question.title %></h2>
 <br>
 <div class="row">
-  <div class="col-sm-1">
+  <div class="col-sm-1 vote">
     <!-- Poner los votos -->
     <%= render 'votes', votable: @question %>
   </div>
@@ -42,6 +44,7 @@
 </div>
 
 <h3><%= pluralize(@question.answers.count, "answer") %></h3>
+<br>
 <% @question.answers.each do |answer| %>
   <div class="row">
     <div class="col-sm-1">
@@ -81,11 +84,17 @@
 <!-- Escribir respuestas -->
 <h4>Tu respuesta</h4>
 <hr>
-<%= form_for [@question, @question.answers.build] do |f| %>
-  <div class="form-group">
-    <%= f.text_area :body, class:"form-control", rows: 10 %>
-  </div>
-  <div class="form-group">
-    <%= f.submit class:"btn btn-primary" %>
-  </div>
+
+<% if user_signed_in? %>
+  <%= form_for [@question, @question.answers.build] do |f| %>
+    <div class="form-group">
+      <%= f.text_area :body, class:"form-control", rows: 10 %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class:"btn btn-primary" %>
+    </div>
+  <% end %>
+<% else %>
+  <pre>Debes estar logueado para poder generar una respuesta</pre>
 <% end %>
+

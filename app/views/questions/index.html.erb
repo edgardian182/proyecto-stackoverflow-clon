@@ -7,15 +7,15 @@
     <table class="table table-stripped">
       <% @questions.each do |question| %>
         <tr>
-          <td>
+          <td class="v-r">
             <%= question.votes.count %>
             <p class="creator">Votos</p>
           </td>
-          <td>
+          <td class="v-r">
             <%= question.answers.count %>
             <p class="creator">Respuestas</p>
           </td>
-          <td>
+          <td class="espaciado">
             <%= link_to question.title, question, class:"title" %> <br>
             <p class="creator">Preguntó <%= question.user.email %> hace <%= time_ago_in_words(question.created_at) %></p>
           </td>

@@ -17,6 +17,16 @@ footer {
   font-size: 12px;
 }
 
+table tr td.espaciado {
+  padding-left: 40px;
+}
+
+table tr td.v-r {
+  text-align: center;
+  width: 80px;
+  font-size: 17px;
+}
+
 
 //Clase para votos
 .item-upvote {
@@ -29,10 +39,10 @@ footer {
   width: 35px;
 
   .upvote-arrow {
-    border-bottom: 9px solid #534540;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 9px solid transparent;
+    border-bottom: 15px solid #534540;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 15px solid transparent;
     left: 10px;
     position: absolute;
     top: 0px;
@@ -41,10 +51,11 @@ footer {
   .upvote-count {
     display: block;
     color: #303030;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: bold;
     line-height: 1;
-    margin-top: 18px;
+    margin-top: 35px;
+    margin-left: 10px;
   }
 
   &:hover .upvote-arrow { border-bottom-color: #F04500; }
