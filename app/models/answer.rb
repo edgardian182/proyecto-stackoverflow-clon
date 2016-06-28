@@ -16,4 +16,8 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :votable, dependent: :destroy
 
   validates_presence_of :user, :body
+
+  def voted_by?(user)
+    votes.exists?(user: user)
+  end
 end
