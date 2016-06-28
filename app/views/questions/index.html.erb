@@ -8,6 +8,7 @@
       <% @questions.each do |question| %>
         <tr>
           <td>
+            <%= question.votes.count %>
             <p class="creator">Votos</p>
           </td>
           <td>
