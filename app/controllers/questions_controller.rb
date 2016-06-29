@@ -24,7 +24,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    # Se inicializan para evitar errores por NilClass en los if que buscan errores
     @answer = Answer.new
+    @comment = Comment.new
   end
 
   def edit

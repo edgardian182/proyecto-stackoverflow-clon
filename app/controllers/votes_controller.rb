@@ -5,6 +5,7 @@ before_action :authenticate_user!
     @votable = find_votable
     @vote = @votable.votes.create(user: current_user)
 
+
     redirect_to votable_url(find_votable)
   end
 
