@@ -1,11 +1,16 @@
-<%= render 'layouts/errors', obj: @errors %>
+<% if @answer.errors.any? %>
+  <%= render 'layouts/errors', obj: @answer %>
+<% end %>
+<% if @comment.errors.any? %>
+  <%= render 'layouts/errors', obj: @comment %>
+<% end %>
 
 <h2><%= @question.title %></h2>
 <br>
 <div class="row">
   <div class="col-sm-1 vote">
     <!-- Poner los votos -->
-    <%= render 'votes', votable: @question %>
+    <%= render 'questions/votes', votable: @question %>
   </div>
   <div class="col-sm-11">
     <p><%= markdown(@question.description) %></p>
@@ -38,7 +43,7 @@
       <% end %>
     <% end %>
 
-    <%= render 'comments_form', commentable: @question %>
+    <%= render 'questions/comments_form', commentable: @question %>
     <!-- ****** COMO TEXTO FIN ****** -->
   </div>
 </div>
@@ -50,7 +55,7 @@
     <div class="col-sm-1">
       <!-- Poner los votos -->
 
-      <%= render 'votes', votable: answer %>
+      <%= render 'questions/votes', votable: answer %>
 
     </div>
     <div class="col-sm-11">
@@ -74,7 +79,7 @@
         <% end %>
 
         <!-- Mostrar formulario para hacer un comentario a respuestas -->
-        <%= render 'comments_form', commentable: answer %>
+        <%= render 'questions/comments_form', commentable: answer %>
         <br>
 
     </div>

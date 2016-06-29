@@ -2,9 +2,14 @@ class CommentsController < ApplicationController
 
   def create
     @commentable = find_commentable
-    @comment = @commentable.comments.create(comment_params)
-
-    redirect_to commentable_url(find_commentable), notice: "The comment was successfully created"
+    @comment = @commentable.comments.new(comment_params)
+    if @comment.save
+      redirect_to commentable_url(find_commentable), notice: "The comment was successfully created"
+    else
+      @question = Question.find(params[:question_id])
+      @answer = Answer.new
+      render 'questions/show'
+    end
   end
 
   def destroy

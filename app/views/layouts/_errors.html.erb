@@ -6,7 +6,7 @@
         <div class="panel-heading">
           <h2 class="panel-heading">
             <%= pluralize(obj.errors.count, "error") %>
-            phobited this record from being saved:
+            phobited this <%= obj.class.to_s.downcase %> from being saved:
           </h2>
           <div class="panel-body">
             <ul>
