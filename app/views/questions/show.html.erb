@@ -50,7 +50,7 @@
 
 <h3><%= pluralize(@question.answers.count, "answer") %></h3>
 <br>
-<% @question.answers.each do |answer| %>
+<% @question.answers.where(each do |answer| %>
   <div class="row">
     <div class="col-sm-1">
       <!-- Poner los votos -->
